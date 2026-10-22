@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title description">
+  <title id="title">Claude scheduling demo architecture</title>
+  <desc id="description">Claude selects tools. A local FastMCP server validates input, manages settings and invokes the existing CP-SAT engine. Results and settings are cached for analysis, comparison, queries and export. This is a conceptual diagram, not a screenshot.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#64748b"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 2px; fill: #0f766e; }
+      .heading { font-size: 32px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-size: 17px; fill: #475569; }
+      .step { font-size: 12px; font-weight: 700; letter-spacing: 1.4px; fill: #64748b; }
+      .name { font-size: 23px; font-weight: 700; fill: #0f172a; }
+      .body { font-size: 16px; fill: #475569; }
+      .small { font-size: 13px; fill: #64748b; }
+      .link { fill: none; stroke: #64748b; stroke-width: 2; marker-end: url(#arrow); }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.3; }
+    </style>
+  </defs>
+  <rect width="1200" height="650" rx="18" fill="#f8fafc"/>
+  <text x="40" y="44" class="eyebrow">PROJECT ARCHITECTURE</text>
+  <text x="40" y="91" class="heading">From conversation to scheduling tools</text>
+  <text x="40" y="124" class="subtitle">Claude interprets requests. The optimization engine computes assignments.</text>
+
+  <rect x="40" y="176" width="290" height="186" rx="14" class="card"/>
+  <text x="64" y="207" class="step">01 / CLIENT</text>
+  <text x="64" y="244" class="name">Claude Desktop</text>
+  <text x="64" y="280" class="body">Interpret user requests</text>
+  <text x="64" y="307" class="body">Select tools and arguments</text>
+  <text x="64" y="334" class="body">Explain returned results</text>
+
+  <rect x="410" y="176" width="380" height="186" rx="14" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="434" y="207" class="step">02 / LOCAL MCP SERVER</text>
+  <text x="434" y="244" class="name">FastMCP · 16 tools</text>
+  <text x="434" y="280" class="body">Validate input and manage settings</text>
+  <text x="434" y="307" class="body">Invoke engine and result utilities</text>
+  <text x="434" y="334" class="body">Return structured responses</text>
+
+  <rect x="870" y="176" width="290" height="186" rx="14" class="card"/>
+  <text x="894" y="207" class="step">03 / EXISTING ENGINE</text>
+  <text x="894" y="244" class="name">CP-SAT Solver</text>
+  <text x="894" y="280" class="body">Apply constraints</text>
+  <text x="894" y="307" class="body">Minimize weighted penalties</text>
+  <text x="894" y="334" class="body">Compute a schedule</text>
+
+  <path d="M330 264 H398" class="link"/>
+  <text x="347" y="248" class="small">stdio</text>
+  <path d="M790 264 H858" class="link"/>
+  <text x="808" y="248" class="small">call</text>
+  <path d="M870 346 H802" class="link"/>
+  <text x="808" y="331" class="small">result</text>
+
+  <path d="M600 362 V406 H215 V440" class="link"/>
+  <path d="M600 362 V440" class="link"/>
+  <path d="M600 406 H985 V440" class="link"/>
+
+  <rect x="40" y="452" width="350" height="124" rx="12" class="card"/>
+  <text x="62" y="485" class="name" style="font-size:20px">Input &amp; settings</text>
+  <text x="62" y="518" class="body">Excel data · period · priorities</text>
+  <text x="62" y="546" class="body">Constraint limits · search time</text>
+
+  <rect x="425" y="452" width="350" height="124" rx="12" class="card"/>
+  <text x="447" y="485" class="name" style="font-size:20px">Result cache</text>
+  <text x="447" y="518" class="body">Solution ID · input · settings</text>
+  <text x="447" y="546" class="body">Schedule and analysis in memory</text>
+
+  <rect x="810" y="452" width="350" height="124" rx="12" class="card"/>
+  <text x="832" y="485" class="name" style="font-size:20px">Review &amp; export</text>
+  <text x="832" y="518" class="body">Analyze · compare · query</text>
+  <text x="832" y="546" class="body">Excel / HTML reports</text>
+
+  <text x="40" y="619" class="small">Conceptual diagram based on implementation · No customer data or original application screenshots</text>
+</svg>
